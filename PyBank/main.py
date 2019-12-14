@@ -52,7 +52,7 @@ def print_data(budget_data_file):
 	# Print 
 	print("Financial Analysis")
 	print("————————————————————————————-")
-	print("Total Months:" + str(count_month))
+	print("Total Months: " + str(count_month))
 	print("Total: $" + str(total_revenue))
 	print("Average Change: $" + str(month_change/count_month))
 	print("Greatest Increase in Profits: " + str(month) + " $" + str(greatest_increase))
