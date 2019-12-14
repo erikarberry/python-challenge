@@ -1,3 +1,4 @@
+#!/usr/bin/env python 3
 #Import modules
 import os
 import csv
@@ -22,6 +23,7 @@ def print_data(budget_data_file):
 	#Loop through each row and add an element to list (pull out the index of the item selected)	 
 		for row in csvreader:
 			month = str(row[0])
+			print("month:" + str(month))
 			revenue = int(row[1])
 			print("revenue:" + str(revenue))
 	#Calculate total number of months
@@ -38,22 +40,22 @@ def print_data(budget_data_file):
 				previous_month_revenue = revenue
 			print("month_change:" + str(month_change))
 			if (count_month > 2):
-				print("month_change/count:" + str(month_change/(count_month - 1)))
-		#Calculate the greatest increase in revenue and include date
-			greatest_increase = max(month_change)
-			greatest_increase = str(month[month_change.index(max(month_change))])
-			print("greatest_increase:" + str(month[month_change.index(max(month_change))])
-		#Calculate greatest decrease in revenue and include date
-			greatest_decrease = min(month_change)
-			greatest_decrease = str(month[month_change.index(min(month_change))])
-			print("greatest_decrease:" + str(month[month_change.index(min(month_change))])
+				print("month_change/count:" + str(month_change/(count_month)))
+	#Calculate the greatest increase in revenue and include date
+			if month_change > greatest_increase:
+				greatest_increase = month_change
+			print("greatest_increase:" + str(greatest_increase))
+	#Calculate greatest decrease in revenue and include date
+			if month_change < greatest_decrease: 
+				greatest_decrease = month_change
+			print("greatest_decrease:" + str(greatest_decrease))
 	# Print 
 	print("Financial Analysis")
 	print("————————————————————————————-")
 	print("Total Months:" + str(count_month))
-	print("Total: $" + str(sum(total_revenue)))
-	print("Average Change: $" + str(month_change/count_month)
-	print("Greatest Increase in Profits: $" + str(greatest_increase))
-	print("Greatest Decrease in Profits: $" + str(greatest_decrease))
+	print("Total: $" + str(total_revenue))
+	print("Average Change: $" + str(month_change/count_month))
+	print("Greatest Increase in Profits: " + str(month) + " $" + str(greatest_increase))
+	print("Greatest Decrease in Profits: " + str(month) + " $" + str(greatest_decrease))
 
 print_data(budget_data_csv)
