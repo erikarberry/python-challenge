@@ -57,5 +57,22 @@ def print_data(budget_data_file):
 	print("Average Change: $" + str(month_change/count_month))
 	print("Greatest Increase in Profits: " + str(month) + " $" + str(greatest_increase))
 	print("Greatest Decrease in Profits: " + str(month) + " $" + str(greatest_decrease))
-
+	#Specify the file to write to
+	output_path = os.path.join("Financial_Analysis.txt")
+	# Open the file using "write" mode. Specify the variable to hold the contents
+	with open(output_path, 'w', newline='') as output_file:
+		output_file.write("Financial Analysis")
+		output_file.write("\n")
+		output_file.write("————————————————————————————-")
+		output_file.write("\n")
+		output_file.write("Total Months: " + str(count_month))
+		output_file.write("\n")
+		output_file.write("Total: $" + str(total_revenue))
+		output_file.write("\n")
+		output_file.write("Average Change: $" + str(month_change/count_month))
+		output_file.write("\n")
+		output_file.write("Greatest Increase in Profits: " + str(month) + " $" + str(greatest_increase))
+		output_file.write("\n")
+		output_file.write("Greatest Decrease in Profits: " + str(month) + " $" + str(greatest_decrease))
+		output_file.write("\n")
 print_data(budget_data_csv)
